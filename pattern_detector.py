@@ -17,16 +17,12 @@ def detect_triangle(df):
     confidence = 78
     return {"name": "Descending Triangle", "confidence": confidence, "entry": recent["close"].iloc[-1]}
 
-def detect_cup_and_handle(df):
-    # Your logic...
-    return {"name": "Cup and Handle", "confidence": 80, "entry": df['close'].iloc[-1]}
 
 # ✅ Add new patterns here
 pattern_functions = [
     detect_head_and_shoulders,
     detect_double_bottom,
     detect_triangle,
-    detect_cup_and_handle,
 ]
 
 def detect_patterns(df):

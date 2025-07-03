@@ -7,7 +7,12 @@ def plot_chart(df):
         high=df['high'],
         low=df['low'],
         close=df['close'],
-        increasing_line_color='lime', decreasing_line_color='red'
+        increasing_line_color='lime',
+        decreasing_line_color='red'
     )])
-    fig.update_layout(xaxis_rangeslider_visible=False, template="plotly_dark", title="BTC/USDT Candlestick")
+    fig.update_layout(
+        xaxis_rangeslider_visible=False,
+        template="plotly_dark",
+        title="BTC/USDT Candlestick (1h)"
+    )
     return fig

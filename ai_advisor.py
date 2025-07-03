@@ -3,10 +3,12 @@ import openai
 
 openai.api_key = OPENAI_API_KEY
 
+use_openai = OPENAI_API_KEY and not OPENAI_API_KEY.startswith("sk-...")
+
 tone_templates = {
-    "Meme 🤡": "Give a casual, sarcastic, meme-ish take on this pattern. Use emojis. Act like a trading bro on Twitter.",
-    "Chad 💪": "Be bold, confident, throw in crypto slang. Keep it intense, call them champ, boss, etc.",
-    "Pro 📊": "Write like a calm financial analyst. Clean advice, no emojis, very rational tone."
+    "Meme 🤡": "You spotted {pattern}! Could be fire or flop. SL at ${sl}, TP at ${tp}. Your call, degenerate. 🤡",
+    "Chad 💪": "{pattern} pattern detected. You either ride or hide. Entry ${entry}, SL ${sl}, TP ${tp}. Don't be weak. 💪",
+    "Pro 📊": "Pattern: {pattern}. Suggested entry at ${entry}, SL at ${sl}, TP at ${tp}. Confidence is {confidence}%. Trade wisely."
 }
 
 def generate_trade_advice(pattern_info, sl_percent, tp_percent, tone):
@@ -16,8 +18,11 @@ def generate_trade_advice(pattern_info, sl_percent, tp_percent, tone):
     confidence = pattern_info['confidence']
     pattern = pattern_info['name']
 
+    if not use_openai:
+        return tone_templates[tone].format(pattern=pattern, entry=entry, sl=sl, tp=tp, confidence=confidence)
+
     prompt = f"""
-You're BTC Buddy, a personal trading assistant.
+You're BTC Buddy, a trading pal.
 
 Pattern Detected: {pattern}
 Entry Price: ${entry}
@@ -27,9 +32,8 @@ Confidence: {confidence}%
 
 {tone_templates[tone]}
 
-Now, explain what this pattern suggests, and whether it's worth taking the trade or not. Mention entry, SL, TP again. Add flair based on the tone.
+Now give trading advice in this tone.
 """
-
     try:
         res = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
