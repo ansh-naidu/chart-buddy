@@ -15,7 +15,7 @@ def plot_chart(df, pattern_info=None, sl=None, tp=None):
     fig.update_layout(
         xaxis_rangeslider_visible=False,
         template="plotly_dark",
-        title="BTC/USDT Candlestick (1h)",
+        title="BTC Binance 30M",
         hovermode='x unified',
         margin=dict(l=40, r=40, t=60, b=40)
     )

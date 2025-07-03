@@ -13,7 +13,7 @@ st.sidebar.title("⚙️ BTC Buddy Settings")
 sl_percent = st.sidebar.number_input("🔧 Stop Loss %", min_value=0.1, max_value=10.0, value=1.5, step=0.1)
 tp_percent = st.sidebar.number_input("🎯 Take Profit %", min_value=0.1, max_value=10.0, value=3.0, step=0.1)
 confidence_threshold = st.sidebar.slider("🧠 Confidence Threshold", 50, 100, 70)
-tone = st.sidebar.radio("🎭 Tone", ["Pro 📊"])
+#tone = st.sidebar.radio("🎭 Tone", ["Pro 📊"])
 
 st.caption(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 

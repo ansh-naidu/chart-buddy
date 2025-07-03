@@ -6,7 +6,7 @@ def fetch_ohlc_data():
         url = "https://api.binance.com/api/v3/klines"
         params = {
             "symbol": "BTCUSDT",
-            "interval": "1h",
+            "interval": "30m",
             "limit": 168  # last 7 days hourly candles
         }
 
