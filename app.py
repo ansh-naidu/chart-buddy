@@ -1,3 +1,4 @@
+from datetime import datetime
 import streamlit as st
 from data_fetcher import fetch_ohlc_data
 from pattern_detector import detect_patterns
