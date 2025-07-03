@@ -8,7 +8,7 @@ use_openai = OPENAI_API_KEY and not OPENAI_API_KEY.startswith("sk-...")
 tone_templates = {
     "Meme 🤡": "You spotted {pattern}! Could be fire or flop. SL at ${sl}, TP at ${tp}. Your call, degenerate. 🤡",
     "Chad 💪": "{pattern} pattern detected. You either ride or hide. Entry ${entry}, SL ${sl}, TP ${tp}. Don't be weak. 💪",
-    "Pro 📊": "Pattern: {pattern}. Suggested entry at ${entry}, SL at ${sl}, TP at ${tp}. Confidence is {confidence}%. Trade wisely."
+    "Pro 📊": "Pattern: {pattern}. Suggested entry at ${entry}, \n SL at ${sl},\n TP at ${tp}\n  Confidence is {confidence}%. Trade wisely."
 }
 
 def generate_trade_advice(pattern_info, sl_percent, tp_percent, tone):
