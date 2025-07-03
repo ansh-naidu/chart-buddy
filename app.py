@@ -39,7 +39,7 @@ with st.spinner("Fetching BTC data..."):
             fig = plot_chart(ohlc_df, pattern_info, sl, tp)
             st.plotly_chart(fig, use_container_width=True)
 
-            advice = generate_trade_advice(pattern_info, sl_percent, tp_percent, tone)
+            advice = generate_trade_advice(pattern_info, sl_percent, tp_percent)
             st.subheader("🤖 Trade Suggestion")
             st.markdown(advice)
         else:
