@@ -11,4 +11,3 @@ def plot_chart(df):
     )])
     fig.update_layout(xaxis_rangeslider_visible=False, template="plotly_dark", title="BTC/USDT Candlestick")
     return fig
-t
